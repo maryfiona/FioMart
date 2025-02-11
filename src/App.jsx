@@ -2,6 +2,7 @@ import Header from "./Components/Header"
 import Navbar from "./Components/Navbar"
 import Product from "./Components/Product"
 import Explore from '../src/Components/Explore'
+import Footer from "./Components/Footer"
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Navbar/>
       <Product/>
       <Explore />
+      <Footer/>
     </div>
   )
 }

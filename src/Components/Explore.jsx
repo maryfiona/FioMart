@@ -1,32 +1,19 @@
 import styled from "styled-components";
 import { FaShoppingCart, FaStar, FaRegStar } from "react-icons/fa";
-import car from '../video/car video.png'
-import handle from '../video/handle cleanser.mp4'
-import knife from '../video/knife.mp4'
-import iphone from '../video/iphone.png'
-import iron from '../video/iron.webp'
-import necklace from '../video/necklace.jpg'
-import skirt from '../video/skirt.jpg'
-import skirt1 from '../video/skirt1.jpg'
-
-
-const exploreItems = [
-  { src: skirt, title: "Purple Gradient Anti-Fall Phone Case", oldPrice: "$120", newPrice: "$90", rating: 4 },
-  { src: handle, title: "Ultra Thin Liquid Silicone Earbuds Case", oldPrice: "$815", newPrice: "$150", rating: 5 },
-  { src: knife, title: "Xiaomi Redmi Pad Pro Silicone Cover", oldPrice: "$219", newPrice: "$80", rating: 3 },
-  { src: iphone, title: "Ocean Band Strap for Apple Watch", oldPrice: "$20,000", newPrice: "$2,010", rating: 4 },
-  { src: iron, title: "Set of 3 Car Cups w/ Replaceable Straws", oldPrice: "$40,010", newPrice: "$4,155", rating: 5 },
-  { src: car, title: "Durable City Bicycle for Adults", oldPrice: "$900", newPrice: "$750", rating: 4 },
-  { src: skirt1, title: "Samsung Smart Ceiling Fan", oldPrice: "$130", newPrice: "$110", rating: 4 },
-  { src: necklace, title: "Luxury Fragrance Perfume Set", oldPrice: "$600", newPrice: "$500", rating: 5 },
-  //{ src: clothes, title: "Professional Wireless Microphone", oldPrice: "$250", newPrice: "$220", rating: 3 },
-  //{ src: shoes, title: "Stylish Men's Running Shoes", oldPrice: "$70", newPrice: "$50", rating: 4 },
-  //{ src: pod, title: "Gaming Headset with Surround Sound", oldPrice: "$120", newPrice: "$95", rating: 4 },
-  //{ src: slip, title: "Natural Black Wavy Wig", oldPrice: "$150", newPrice: "$110", rating: 4 },
-  //{ src: leader, title: "Gold Plated Bangle Set", oldPrice: "$90", newPrice: "$70", rating: 4 },
-  //{ src: light, title: "Elegant Sterling Silver Ring", oldPrice: "$60", newPrice: "$45", rating: 4 },
-  //{ src: brush, title: "Modern Abstract Canvas Painting", oldPrice: "$300", newPrice: "$220", rating: 4 }
-];
+import skirt from "../video/skirt.jpg";
+import dress from "../video/dress.jpg";
+import earpod from "../img/earpod.jpg";
+import iphone from "../video/iphone.png";
+import iron from "../video/iron.webp";
+import car from "../video/car video.png";
+import skirt1 from "../video/skirt1.jpg";
+import necklace from "../video/necklace.jpg";
+import samsung from "../img/samsung.jpg";
+import shoes from "../img/shoes.jpg";
+import redmi from "../img/redmi.jpg";
+import watch from "../img/watch.jpg";
+import cup from "../img/cup.jpg";
+import bicycle from "../img/bicycle.jpg";
 
 const Explore = () => {
   return (
@@ -34,39 +21,309 @@ const Explore = () => {
       <Container>
         <Heading>Explore your interest</Heading>
         <ProductGrid>
-          {exploreItems.map((item, index) => (
-            <Card key={index}>
-              <ImageWrapper>
-                <img src={item.src} alt={item.title} />
-              </ImageWrapper>
-              <Info>
-                <Name>{item.title}</Name>
-                <Price>
-                  <OldPrice>{item.oldPrice}</OldPrice>
-                  <CartIcon>
-                    <FaShoppingCart />
-                  </CartIcon>
-                </Price>
-                <NewPrice>{item.newPrice}</NewPrice>
-                <Rating>
-                  {[...Array(5)].map((_, i) =>
-                    i < item.rating ? <FaStar key={i} /> : <FaRegStar key={i} />
-                  )}
-                </Rating>
-              </Info>
-            </Card>
-          ))}
+          <Card>
+            <ImageWrapper>
+              <img src={skirt} alt="Stylish Women's Skirt" />
+            </ImageWrapper>
+            <Info>
+              <Name>Stylish Women`s Skirt</Name>
+              <Price>
+                <OldPrice>$120</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$90</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={dress} alt="Elegant Women's Dress" />
+            </ImageWrapper>
+            <Info>
+              <Name>Elegant Women`s Dress</Name>
+              <Price>
+                <OldPrice>$815</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$150</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={earpod} alt="Wireless EarPods" />
+            </ImageWrapper>
+            <Info>
+              <Name>Wireless EarPods</Name>
+              <Price>
+                <OldPrice>$219</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$80</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaRegStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={iphone} alt="Apple iPhone 13 Pro" />
+            </ImageWrapper>
+            <Info>
+              <Name>Apple iPhone 13 Pro</Name>
+              <Price>
+                <OldPrice>$20,000</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$2,010</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={iron} alt="Electric Steam Iron" />
+            </ImageWrapper>
+            <Info>
+              <Name>Electric Steam Iron</Name>
+              <Price>
+                <OldPrice>$40,010</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$4,155</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={car} alt="Electric Car" />
+            </ImageWrapper>
+            <Info>
+              <Name>Electric Car</Name>
+              <Price>
+                <OldPrice>$40,000</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$39,999</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={skirt1} alt="Stylish Women's Skirt" />
+            </ImageWrapper>
+            <Info>
+              <Name>Fashionable Women`s Skirt</Name>
+              <Price>
+                <OldPrice>$110</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$85</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={samsung} alt="Samsung Galaxy Phone" />
+            </ImageWrapper>
+            <Info>
+              <Name>Samsung Galaxy</Name>
+              <Price>
+                <OldPrice>$999</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$950</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={necklace} alt="Beautiful Necklace" />
+            </ImageWrapper>
+            <Info>
+              <Name>Elegant Necklace</Name>
+              <Price>
+                <OldPrice>$200</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$175</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={redmi} alt="Redmi Phone" />
+            </ImageWrapper>
+            <Info>
+              <Name>Redmi Note 10</Name>
+              <Price>
+                <OldPrice>$250</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$180</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaRegStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={shoes} alt="Men's Sneakers" />
+            </ImageWrapper>
+            <Info>
+              <Name>Men`s Sneakers</Name>
+              <Price>
+                <OldPrice>$60</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$50</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaRegStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={watch} alt="Luxury Watch" />
+            </ImageWrapper>
+            <Info>
+              <Name>Luxury Watch</Name>
+              <Price>
+                <OldPrice>$1,200</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$999</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={cup} alt="Ceramic Mug" />
+            </ImageWrapper>
+            <Info>
+              <Name>Ceramic Mug</Name>
+              <Price>
+                <OldPrice>$15</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$12</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaRegStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+          <Card>
+            <ImageWrapper>
+              <img src={bicycle} alt="Mountain Bicycle" />
+            </ImageWrapper>
+            <Info>
+              <Name>Mountain Bicycle</Name>
+              <Price>
+                <OldPrice>$350</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$299</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+          <Card>
+            <ImageWrapper>
+              <img src={shoes} alt="Mountain Bicycle" />
+            </ImageWrapper>
+            <Info>
+              <Name>shoes</Name>
+              <Price>
+                <OldPrice>$350</OldPrice>
+                <CartIcon>
+                  <FaShoppingCart />
+                </CartIcon>
+              </Price>
+              <NewPrice>$299</NewPrice>
+              <Rating>
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar />
+              </Rating>
+            </Info>
+          </Card>
+
+
         </ProductGrid>
       </Container>
     </Section>
   );
 };
 
+
 export default Explore;
 
 const Section = styled.section`
   padding: 30px 0;
   background: #f8f8f8;
+`;
+const Heading = styled.h2`
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
 `;
 
 const Container = styled.div`
@@ -75,12 +332,6 @@ const Container = styled.div`
   padding: 30px;
 `;
 
-const Heading = styled.h2`
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
-`;
 
 const ProductGrid = styled.div`
   display: grid;
