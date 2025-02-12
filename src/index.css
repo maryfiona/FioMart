@@ -6,6 +6,6 @@
   
   body, html {
     width: 100%;
-    overflow-x: hidden; /* Prevents horizontal scroll */
+    overflow-x: hidden; 
   }
   

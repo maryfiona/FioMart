@@ -312,44 +312,68 @@ const Explore = () => {
   );
 };
 
-
 export default Explore;
 
 const Section = styled.section`
   padding: 30px 0;
   background: #f8f8f8;
 `;
+
 const Heading = styled.h2`
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const Container = styled.div`
   max-width: 1300px;
   margin: auto;
   padding: 30px;
-`;
-
-
-const ProductGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    padding: 15px;
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: repeat(1, 1fr);
+    padding: 10px;
   }
 `;
+
+const ProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  // Default for large screens
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);  // For tablets
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);  // For mobile devices (larger ones)
+    gap: 15px;
+  }
+
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);  // For small mobile devices
+    gap: 10px;
+
+    // Hide the last item in the grid
+    & > div:nth-last-child(1) {
+      display: none;
+    }
+  }
+`;
+
 
 const Card = styled.div`
   background: #fff;
@@ -387,6 +411,10 @@ const Name = styled.h6`
   font-weight: 400;
   color: #333;
   margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const Price = styled.div`
@@ -408,6 +436,10 @@ const NewPrice = styled.span`
   font-weight: bold;
   color: #d9534f;
   margin-top: 5px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Rating = styled.div`
@@ -416,6 +448,10 @@ const Rating = styled.div`
   color: gold;
   font-size: 14px;
   margin-top: 5px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const CartIcon = styled.div`

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { FaSearch, FaThumbsUp } from "react-icons/fa";
 import { BsBookmarkStarFill } from "react-icons/bs";
@@ -5,20 +6,31 @@ import { PiGiftBold } from "react-icons/pi";
 import { MdSupportAgent } from "react-icons/md";
 import { VscAccount } from "react-icons/vsc";
 import { FiShoppingCart } from "react-icons/fi";
-import temuLogo from "../img/temu.png"; // Import logo correctly
+import temuLogo from "../img/temu.png"; 
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <Nav>
-      {/* Logo */}
+  
       <LogoContainer>
         <a href="/">
           <img src={temuLogo} alt="Temu Logo" />
         </a>
       </LogoContainer>
 
-      {/* Navigation Links */}
-      <NavLinks>
+
+      <Hamburger onClick={toggleMenu}>
+        &#9776;
+      </Hamburger>
+
+
+      <NavLinks isOpen={isMenuOpen}>
         <NavItem href="/">
           <FaThumbsUp /> <span>Best Seller</span>
         </NavItem>
@@ -32,7 +44,6 @@ const Navbar = () => {
         <NavItem href="/">Categories</NavItem>
       </NavLinks>
 
-      {/* Search Bar */}
       <SearchBar>
         <input type="text" placeholder="Search..." />
         <button>
@@ -40,14 +51,14 @@ const Navbar = () => {
         </button>
       </SearchBar>
 
-      {/* Account & Cart Section */}
       <AccountCart>
         <AccountItem href="/">
           <VscAccount /> <span>Order & <br /> Account</span>
         </AccountItem>
-        <AccountItem href="/">
+
+        <Support href="/">
           <MdSupportAgent /> <span>Support</span>
-        </AccountItem>
+        </Support>
         <CartIcon href="/">
           <FiShoppingCart />
         </CartIcon>
@@ -58,9 +69,8 @@ const Navbar = () => {
 
 export default Navbar;
 
-//
-// STYLED COMPONENTS
-//
+
+
 const Nav = styled.nav`
   display: flex;
   align-items: center;
@@ -87,6 +97,19 @@ const NavLinks = styled.ul`
   gap: 25px;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 768px) {
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; /* Mobile menu toggle */
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+  }
 `;
 
 const NavItem = styled.a`
@@ -99,6 +122,12 @@ const NavItem = styled.a`
 
   &:hover {
     color: orange;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
   }
 `;
 
@@ -123,12 +152,32 @@ const SearchBar = styled.div`
     cursor: pointer;
     color: white;
   }
+
+  @media (max-width: 768px) {
+    width: 45%;
+    margin-top: 10px;
+  }
 `;
 
 const AccountCart = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: -5px; 
+    flex-wrap: nowrap; 
+    
+    a {
+      font-size: 20px; 
+      position: relative;
+      margin-left: -10px; 
+    }
+
+    span {
+      display: none; 
+    }
+  }
 `;
 
 const AccountItem = styled.a`
@@ -142,6 +191,18 @@ const AccountItem = styled.a`
   &:hover {
     color: orange;
   }
+
+  @media (max-width: 768px) {
+    span {
+      display: none; 
+    }
+  }
+`;
+
+const Support = styled(AccountItem)`
+  @media (max-width: 768px) {
+    display: none; 
+  }
 `;
 
 const CartIcon = styled.a`
@@ -152,5 +213,20 @@ const CartIcon = styled.a`
 
   &:hover {
     color: orange;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+const Hamburger = styled.div`
+  display: none;
+  cursor: pointer;
+  font-size: 20px;
+
+  @media (max-width: 768px) {
+    display: block;
+    color: black;
   }
 `;

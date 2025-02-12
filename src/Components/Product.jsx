@@ -314,7 +314,7 @@ const Product = () => {
 
 export default Product;
 
-// Styled Components
+
 const Section = styled.section`
   padding: 30px 0;
   background: #f8f8f8;
@@ -329,22 +329,30 @@ const Container = styled.div`
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);  
   gap: 20px;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);  
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);  
+    gap: 15px;
   }
 
+  
   @media (max-width: 480px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-`;
+    grid-template-columns: repeat(2, 1fr);  
+    gap: 10px;
 
+    // Hide the last item in the grid
+    & > div:nth-last-child(1) {
+      display: none;
+    }
+  }
+
+`;
 const Card = styled.div`
   background: #fff;
   border-radius: 12px;
