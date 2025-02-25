@@ -53,11 +53,11 @@ const Navbar = () => {
 
       <AccountCart>
         <AccountItem href="/">
-          <VscAccount /> <span>Order & <br /> Account</span>
+          <VscAccount /> 
         </AccountItem>
 
         <Support href="/">
-          <MdSupportAgent /> <span>Support</span>
+          <MdSupportAgent /> 
         </Support>
         <CartIcon href="/">
           <FiShoppingCart />
