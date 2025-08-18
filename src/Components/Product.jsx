@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { FaShoppingCart, FaStar, FaRegStar } from "react-icons/fa";
 import phone from "../img/phone.jpg";
 import redmi from "../img/redmi.jpg";
@@ -370,7 +371,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   background: #fff;
   border-radius: 10px;
-  padding: 8px;
+
 
   img {
     width: 100%;
@@ -430,3 +431,4 @@ const CartIcon = styled.div`
     color: #333;
   }
 `;
+

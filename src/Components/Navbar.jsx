@@ -1,232 +1,259 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { FaSearch, FaThumbsUp } from "react-icons/fa";
-import { BsBookmarkStarFill } from "react-icons/bs";
-import { PiGiftBold } from "react-icons/pi";
-import { MdSupportAgent } from "react-icons/md";
-import { VscAccount } from "react-icons/vsc";
-import { FiShoppingCart } from "react-icons/fi";
-import temuLogo from "../img/temu.png"; 
+import { useState } from 'react';
+import styled from 'styled-components';
+import { FaSearch } from 'react-icons/fa';
+import { MdSupportAgent } from 'react-icons/md';
+import { VscAccount } from 'react-icons/vsc';
+import { FiShoppingCart } from 'react-icons/fi';
+import FioMart from '../img/mart.jpg';
+import skirt from '../video/skirt.jpg'
+import dress from '../video/dress.jpg'
+import earpod from '../img/earpod.jpg'
+import iphone from '../video/iphone.png'
+const products = [
+  {
+    id: 1,
+    image: skirt,
+    alt: "Stylish Women's Skirt",
+    name: "Stylish Women's Skirt",
+    oldPrice: "$120",
+    newPrice: "$90",
+    rating: 4,
+  },
+  {
+    id: 2,
+    image: dress,
+    alt: "Elegant Women's Dress",
+    name: "Elegant Women's Dress",
+    oldPrice: "$815",
+    newPrice: "$150",
+    rating: 5,
+  },
+  {
+    id: 3,
+    image: earpod,
+    alt: "Wireless EarPods",
+    name: "Wireless EarPods",
+    oldPrice: "$219",
+    newPrice: "$80",
+    rating: 3,
+  },
+  {
+    id: 4,
+    image: iphone,
+    alt: "Apple iPhone 13 Pro",
+    name: "Apple iPhone 13 Pro",
+    oldPrice: "$20,000",
+    newPrice: "$2,010",
+    rating: 4,
+  },
+];
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSearch = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    if (term) {
+      const results = products.filter((product) => product.toLowerCase().includes(term.toLowerCase()));
+      setFilteredProducts(results);
+    } else {
+      setFilteredProducts([]);
+    }
+  };
+
   return (
     <Nav>
-  
       <LogoContainer>
         <a href="/">
-          <img src={temuLogo} alt="Temu Logo" />
+          <img  src={FioMart} alt="FioMart Logo" />
         </a>
       </LogoContainer>
 
+      <NavMenu>
+        <NavItem href="/">Home</NavItem>
+        <NavItem href="/appliances">Appliances</NavItem>
+        <NavItem href="/electronics">Electronics</NavItem>
+        <NavItem href="/fashion">Fashion</NavItem>
+        <NavItem href="/contact">Contact</NavItem>
+      </NavMenu>
 
-      <Hamburger onClick={toggleMenu}>
-        &#9776;
-      </Hamburger>
-
-
-      <NavLinks isOpen={isMenuOpen}>
-        <NavItem href="/">
-          <FaThumbsUp /> <span>Best Seller</span>
-        </NavItem>
-        <NavItem href="/">
-          <BsBookmarkStarFill /> <span>5-Star Rated</span>
-        </NavItem>
-        <NavItem href="/">
-          <PiGiftBold /> <span>Valentine’s Day</span>
-        </NavItem>
-        <NavItem href="/">New Arrivals</NavItem>
-        <NavItem href="/">Categories</NavItem>
-      </NavLinks>
-
-      <SearchBar>
-        <input type="text" placeholder="Search..." />
-        <button>
-          <FaSearch />
-        </button>
-      </SearchBar>
+      <SearchContainer>
+        <SearchBar>
+          <input
+            type="text"
+            placeholder="Search for products..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+          <button>
+            <FaSearch />
+          </button>
+        </SearchBar>
+        {filteredProducts.length > 0 && (
+          <SearchResults>
+            {filteredProducts.map((product, index) => (
+              <SearchResult key={index}>{product}</SearchResult>
+            ))}
+          </SearchResults>
+        )}
+      </SearchContainer>
 
       <AccountCart>
         <AccountItem href="/">
-          <VscAccount /> 
+          <VscAccount />
         </AccountItem>
-
-        <Support href="/">
-          <MdSupportAgent /> 
-        </Support>
+        <FloatingSupport href="/">
+          <MdSupportAgent />
+        </FloatingSupport>
         <CartIcon href="/">
           <FiShoppingCart />
         </CartIcon>
       </AccountCart>
+
+      <Hamburger onClick={toggleMenu}>
+        &#9776;
+      </Hamburger>
     </Nav>
   );
 };
 
 export default Navbar;
 
-
-
+// Styled Components
 const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 25px;
-  background-color: white;
+  padding: 10px 15px;
+  background-color: black;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const LogoContainer = styled.div`
-  a {
-    display: flex;
-  }
-  
   img {
-    height: 45px;
+    height: 80px;
   }
 `;
 
-const NavLinks = styled.ul`
+const NavMenu = styled.div`
   display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
+  gap: 30px;
 
   @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; /* Mobile menu toggle */
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding-top: 20px;
+    display: none;
   }
 `;
 
 const NavItem = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 15px;
   font-weight: bold;
-  color: black;
+  color: white;
   text-decoration: none;
 
   &:hover {
     color: orange;
   }
+`;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-  }
+const SearchContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
 `;
 
 const SearchBar = styled.div`
   display: flex;
-  align-items: center;
-  border: 2px solid #000;
+  border: 2px solid white;
   border-radius: 20px;
   overflow: hidden;
 
   input {
-    padding: 10px 15px;
+    padding: 10px;
     border: none;
     outline: none;
-    flex: 1;
+    width: 100%;
   }
 
   button {
-    background: black;
+    background: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px;
     cursor: pointer;
-    color: white;
+    color: black;
   }
+`;
 
-  @media (max-width: 768px) {
-    width: 45%;
-    margin-top: 10px;
+const SearchResults = styled.div`
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 5px;
+`;
+
+const SearchResult = styled.div`
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
   }
 `;
 
 const AccountCart = styled.div`
   display: flex;
-  align-items: center;
-  gap: 20px;
 
-  @media (max-width: 768px) {
-    gap: -5px; 
-    flex-wrap: nowrap; 
-    
-    a {
-      font-size: 20px; 
-      position: relative;
-      margin-left: -10px; 
-    }
-
-    span {
-      display: none; 
-    }
-  }
+  margin-left:5px;
 `;
 
 const AccountItem = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
-  color: black;
-  text-decoration: none;
-
-  &:hover {
-    color: orange;
-  }
-
-  @media (max-width: 768px) {
-    span {
-      display: none; 
-    }
-  }
-`;
-
-const Support = styled(AccountItem)`
-  @media (max-width: 768px) {
-    display: none; 
-  }
-`;
-
-const CartIcon = styled.a`
   font-size: 22px;
   font-weight: bold;
-  color: black;
+  color: white;
   text-decoration: none;
+  
+  margin-right:30px;
 
   &:hover {
     color: orange;
   }
+`;
+
+const FloatingSupport = styled(AccountItem)`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: orange;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    bottom: 15px;
+    right: 15px;
   }
 `;
+
+const CartIcon = styled(AccountItem)``;
 
 const Hamburger = styled.div`
   display: none;
+  font-size: 24px;
+  color: white;
   cursor: pointer;
-  font-size: 20px;
 
   @media (max-width: 768px) {
     display: block;
-    color: black;
   }
 `;

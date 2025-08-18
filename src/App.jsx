@@ -4,9 +4,11 @@ import Product from "./Components/Product"
 import Explore from '../src/Components/Explore'
 import Footer from "./Components/Footer"
 
+
 const App = () => {
   return (
     <div>
+     
       <Header/>
       <Navbar/>
       <Product/>

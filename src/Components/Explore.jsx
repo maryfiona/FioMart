@@ -392,7 +392,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   background: #fff;
   border-radius: 10px;
-  padding: 8px;
+
 
   img {
     width: 100%;

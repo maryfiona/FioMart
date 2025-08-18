@@ -1,15 +1,11 @@
-
 import styled from "styled-components";
 import { MdLocalShipping, MdOutlineAssignmentReturn, MdPhoneAndroid } from "react-icons/md";
 
-
 const HeaderContainer = styled.div`
-  background-color: black;
   padding: 8px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
   text-align: center;
   width: 100%;
   position: relative;
@@ -17,7 +13,6 @@ const HeaderContainer = styled.div`
    @media (max-width: 1024px) {
     display: none;
   }
-  
 `;
 
 const Section = styled.div`
@@ -47,13 +42,13 @@ const Section = styled.div`
 
 const IconWrapper = styled.div`
   font-size: 28px;
-  color:rgb(157, 214, 111); /* Lighter camouflage color */
+  color:blue;
 `;
 
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  line-height: 1; /* Reduce space between text lines */
+  line-height: 1;
 `;
 
 const Title = styled.h5`
@@ -68,7 +63,6 @@ const Subtitle = styled.p`
   opacity: 0.8;
 `;
 
-
 const Header = () => {
   return (
     <HeaderContainer>
@@ -77,8 +71,8 @@ const Header = () => {
           <MdLocalShipping />
         </IconWrapper>
         <TextContainer>
-          <Title>Free shipping on all orders</Title>
-          <Subtitle>Limited-time offers</Subtitle>
+          <Title>Fast & Reliable Shipping</Title>
+          <Subtitle>Get your orders quickly</Subtitle>
         </TextContainer>
       </Section>
 
@@ -87,8 +81,8 @@ const Header = () => {
           <MdOutlineAssignmentReturn />
         </IconWrapper>
         <TextContainer>
-          <Title>Return within 90 days</Title>
-          <Subtitle>From purchase date</Subtitle>
+          <Title>Hassle-Free Returns</Title>
+          <Subtitle>Easy return process</Subtitle>
         </TextContainer>
       </Section>
 
@@ -97,7 +91,7 @@ const Header = () => {
           <MdPhoneAndroid />
         </IconWrapper>
         <TextContainer>
-          <Title>Get The Temu App</Title>
+          <Title>Download Our App</Title>
         </TextContainer>
       </Section>
     </HeaderContainer>
