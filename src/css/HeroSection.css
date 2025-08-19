@@ -1,0 +1,83 @@
+/* HeroSection.css */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8%;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  background-image: url(../img//color.jpeg);
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.hero-content h1 span {
+  color:blue;
+}
+
+.hero-content p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.hero-buttons {
+  margin-top: 1.5rem;
+}
+
+.btn-primary {
+  background: blue;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  margin-right: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: rgb(33, 33, 230);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid blue;
+  color: blue;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: rgb(33, 33, 230);
+  color: #fff;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  max-width: 400px;
+}
+
+.discount-badge {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: blue;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}

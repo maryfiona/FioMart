@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar"
 import Product from "./Components/Product"
 import Explore from '../src/Components/Explore'
 import Footer from "./Components/Footer"
+import HeroSection from "./Components/HeadSection"
 
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
      
       <Header/>
       <Navbar/>
+       <HeroSection/>
       <Product/>
       <Explore />
       <Footer/>
